@@ -1,6 +1,8 @@
 # SuperTux Milestone Mix
 Forest World in Milestone 1 using PepperTux code (Made using HaxeFlixel)
 
+This is just chapter 1 of a larger project.
+
 ## Credits
 - Vaesea (Coding, Levels that still need to be made)
 - AnatolyStev (Coding)
