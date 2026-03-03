@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="nolok.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="stand0000" x="189" y="193" width="94" height="178" frameX="-19" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0000" x="318" y="0" width="97" height="180" frameX="-16" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0001" x="216" y="0" width="102" height="181" frameX="-14" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0002" x="318" y="0" width="97" height="180" frameX="-16" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0003" x="189" y="193" width="94" height="178" frameX="-19" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0004" x="95" y="193" width="94" height="181" frameX="-19" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0005" x="0" y="193" width="95" height="183" frameX="-18" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0006" x="95" y="193" width="94" height="181" frameX="-19" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="walk0007" x="189" y="193" width="94" height="178" frameX="-19" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="throw0000" x="106" y="0" width="110" height="181" frameX="-3" frameY="-8" frameWidth="128" frameHeight="192"/>
+	<SubTexture name="fall0000" x="0" y="0" width="106" height="193" frameX="-14" frameY="2" frameWidth="128" frameHeight="192"/>
+</TextureAtlas>
