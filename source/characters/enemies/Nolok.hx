@@ -1,8 +1,8 @@
 package characters.enemies;
 
 // made by vaesea and anatolystev (mostly anatolystev)
-// still has a major bug where he doesn't start throwing when hitting the right wall
-// also doesn't throw right now
+// might be the worst code in the entire game, please remind me or anatolystev to put a better fix later.
+// also might be the most boring boss ever.
 
 import characters.player.Tux;
 import flixel.FlxG;
@@ -10,6 +10,7 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
+import worldmap.WorldMapState;
 
 enum NolokStatesOne
 {
@@ -27,9 +28,8 @@ enum NolokStatesTwo
 class Nolok extends FlxSprite
 {
     // Health and stuff like that
-    var health = 7;
+    var health = 5;
     var invFrames = 2;
-    var dyingTime = 2;
     var canTakeDamage = true;
 
     // Movement
@@ -51,7 +51,8 @@ class Nolok extends FlxSprite
     var changeToThrowingTimer = 0.5; // unused
     var startTimer = 2;
 
-    var hitThisFrame = false;
+    // Throwing Vicious Ivys
+    var nolokIsVeryBusyThrowingViciousIvysRightNow = false; // do i get a reward for this
 
     // Spritesheet
     var nolokImage = FlxAtlasFrames.fromSparrow("assets/images/characters/nolok.png", "assets/images/characters/nolok.xml");
@@ -101,29 +102,52 @@ class Nolok extends FlxSprite
             case Normal:
                 velocity.x = 0;
                 animation.play("stand");
+
             case Running:
                 velocity.x = direction * speed;
                 animation.play("walk");
-                if (justTouched(WALL))
+
+                if ((direction == -1 && isTouching(LEFT)) || (direction == 1 && isTouching(RIGHT))) // i swear to god this has to be the worst fix of all time...
                 {
                     flipDirection();
                     currentStateOne = Throwing;
                 }
+
             case Throwing:
                 velocity.x = 0;
-                animation.play("throw");
-                new FlxTimer().start(4, function(_)
+                if (!nolokIsVeryBusyThrowingViciousIvysRightNow)
                 {
-                    currentStateOne = Running;
-                }, 1);
+                    nolokIsVeryBusyThrowingViciousIvysRightNow = true;
+                    animation.play("stand");
+                    
+                    new FlxTimer().start(1, function(_)
+                    {
+                        throwViciousIvy();
+                        new FlxTimer().start(1, function(_)
+                        {
+                            throwViciousIvy();
+                            new FlxTimer().start(2, function(_)
+                            {
+                                nolokIsVeryBusyThrowingViciousIvysRightNow = false; // amazing variable name i think
+                                currentStateOne = Running;
+                            }, 1);
+                        }, 1);
+                    }, 1);
+                }
         }
     }
 
     function throwViciousIvy()
     {
-        var viciousIvy:ViciousIvy = new ViciousIvy(-32, 64);
+        animation.play("throw");
+        var viciousIvy:ViciousIvy = new ViciousIvy(this.x + 24, this.y + 75);
         viciousIvy.direction = this.direction;
+        viciousIvy.flipX = this.flipX;
         Global.PS.enemies.add(viciousIvy);
+        new FlxTimer().start(0.2, function(_)
+        {
+            animation.play("stand");
+        }, 1);
     }
 
     function flipDirection()
@@ -159,7 +183,7 @@ class Nolok extends FlxSprite
 
             if (health <= 0)
             {
-                kill();
+                die(tux);
             }
 
             FlxTween.flicker(this, invFrames, 0.1, {type: ONESHOT});
@@ -179,11 +203,34 @@ class Nolok extends FlxSprite
         }
     }
 
-    override public function kill()
+    public function die(tux:Tux)
     {
         Global.score += scoreAmount;
         flipY = true;
         velocity.y = -fallForce;
         solid = false;
+
+        if (FlxG.sound.music != null) // Check if song is playing, if it is, stop song.
+        {
+            FlxG.sound.music.stop();
+        }
+
+        new FlxTimer().start(1, function(_)
+        {
+            FlxG.sound.playMusic("assets/music/leveldone-special.ogg", 1.0, true);
+
+            Global.tuxState = tux.currentState;
+
+            if (!Global.completedLevels.contains(Global.currentLevel))
+            {
+                Global.completedLevels.push(Global.currentLevel);
+            }
+
+            new FlxTimer().start(8, function(_)
+            {
+                Global.saveProgress();
+                FlxG.switchState(WorldMapState.new);
+            }, 1);
+        }, 1);
     }
 }

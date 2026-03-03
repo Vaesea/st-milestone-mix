@@ -3,7 +3,7 @@
  <properties>
   <property name="Level Creator" value="Sophie Ball"/>
   <property name="Level Name" value="NOLOK"/>
-  <property name="Music" value="assets/music/forest.ogg"/>
+  <property name="Music" value="assets/music/bossattack.ogg"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/blocks.tsx"/>
  <tileset firstgid="16" source="../tilesets/creatures.tsx"/>

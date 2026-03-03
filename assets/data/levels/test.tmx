@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="64">
  <properties>
-  <property name="Level Creator" value="Your Name"/>
-  <property name="Level Name" value="New Level"/>
+  <property name="Level Creator" value="Vaesea"/>
+  <property name="Level Name" value="Test Level"/>
   <property name="Music" value="assets/music/forest.ogg"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/blocks.tsx"/>
