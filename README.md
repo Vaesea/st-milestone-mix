@@ -12,6 +12,6 @@ This is just chapter 1 of a larger project.
 - Larry Ewing (Creator of Tux)
 
 ## How to build
-1. Make sure Haxe and HaxeFlixel are installed. This includes Flixel Addons, Lime, and HXCPP.
+1. Make sure Haxe and HaxeFlixel are installed. This includes Flixel Addons, Lime, and hxcpp.
 2. Should be able to compile it with a "lime test (windows/mac/linux) -debug"
-3. If you can't, check the workflow. If the workflow builds for that commit, it's likely you messed something up. Make sure you downloaded Haxe, HaxeFlixel (including Flixel Addons), Lime and HXCPP correctly.
+3. If you can't, check the workflow. If the workflow builds for that commit, it's likely you messed something up. Make sure you downloaded Haxe, HaxeFlixel (including Flixel Addons), Lime and hxcpp correctly.
