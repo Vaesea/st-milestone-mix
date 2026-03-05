@@ -2,7 +2,6 @@ package objects;
 
 import characters.player.Tux;
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;

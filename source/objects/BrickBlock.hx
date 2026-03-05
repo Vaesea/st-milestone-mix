@@ -12,7 +12,6 @@ import flixel.FlxSprite;
 import flixel.effects.particles.FlxParticle;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxColor;
 import objects.Coin;
 
 class EmptyNormalBrickBlock extends FlxSprite
