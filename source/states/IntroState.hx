@@ -67,7 +67,7 @@ class IntroState extends FlxState
 
 
         
-        SuperTux - Milestone Madness - Chapter 1
+        SuperTux - Milestone Mix - Chapter 1
         
         Press SPACE to go to the worldmap.", 18);
         introText.setFormat("assets/fonts/SuperTux-Medium.ttf", 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
