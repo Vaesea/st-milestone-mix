@@ -76,6 +76,7 @@ class PlayState extends FlxState
 		entities.add(bosses);
 		add(solidThings);
 		add(atiles);
+		add(map);
 		add(td);
 		add(entities);
 		add(tux);

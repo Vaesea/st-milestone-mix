@@ -80,7 +80,6 @@ class LevelLoader extends FlxState
         backgroundMap.solid = false;
 
         state.add(backgroundMap);
-        state.add(state.map);
 
         for (solid in getLevelObjects(tiledMap, "Level"))
         {
