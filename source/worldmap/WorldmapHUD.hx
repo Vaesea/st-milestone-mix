@@ -10,6 +10,7 @@ class WorldmapHUD extends FlxState
     var scoreText:FlxText;
     var coinText:FlxText;
     var lifeText:FlxText; // oh for fuck sake the other HUD isn't lifeText????
+    var levelNameText:FlxText;
 
     public function new()
     {
@@ -33,10 +34,17 @@ class WorldmapHUD extends FlxState
         lifeText.scrollFactor.set();
         lifeText.borderSize = 1.25;
 
+        // Create level name text
+        levelNameText = new FlxText(0, 26, FlxG.width, Global.dotLevelName, 18);
+        levelNameText.setFormat("assets/fonts/SuperTux-Medium.ttf", 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        levelNameText.scrollFactor.set();
+        levelNameText.borderSize = 1.25;
+
         // Add all text
         add(scoreText);
         add(coinText);
         add(lifeText);
+        add(levelNameText);
     }
 
     override public function update(elapsed:Float)
@@ -50,6 +58,9 @@ class WorldmapHUD extends FlxState
         
         // Update Lives Text
         lifeText.text = "Lives: " + (Global.lives);
+
+        // Update Level Name Text
+        levelNameText.text = Global.dotLevelName;
 
         super.update(elapsed);
     }

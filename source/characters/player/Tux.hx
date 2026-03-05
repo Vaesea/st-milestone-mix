@@ -322,8 +322,8 @@ class Tux extends FlxSprite
         FlxG.resetState();
     }
 
-    // copied from peppertux
-    function reloadGraphics()
+    // copied from peppertux, public due to playstate using it
+    public function reloadGraphics()
     {
         animation.reset();
 

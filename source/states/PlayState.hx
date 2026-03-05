@@ -64,6 +64,10 @@ class PlayState extends FlxState
 		atiles = new FlxTypedGroup<FlxSprite>();
 		atilesFront = new FlxTypedGroup<FlxSprite>();
 
+		// Set Tux's current state
+		tux.currentState = Global.tuxState;
+		tux.reloadGraphics();
+
 		LevelLoader.loadLevel(this, Global.currentLevel);
 
 		// Add things part 3

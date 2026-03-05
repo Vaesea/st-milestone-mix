@@ -119,7 +119,7 @@ class WorldMapState extends FlxState
     {
         if (Std.isOfType(square, Level))
         {
-            var level:Level = cast square; // I did a REALLY complicated thing here and I'm NOT even sure if it's needed
+            var level:Level = cast square; // I did a REALLY complicated thing here and I'm NOT even sure if it's needed (note from vaesea -> is it really that complicated? it's just a cast [thing]...)
 
             Global.dotLevelName = level.ldDisplayName;
 

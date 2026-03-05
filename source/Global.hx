@@ -25,7 +25,7 @@ class Global
     public static var currentLevel:String;
     public static var levelName:String;
     public static var levelCreator:String;
-    public static var dotLevelName:String;
+    public static var dotLevelName = ""; // making sure it isn't null so the game doesn't crash upon worldmap load
 
     public static var checkpointReached = false;
 
